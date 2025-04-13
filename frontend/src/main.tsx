@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App.tsx';
 import './index.css';
+import './styles/global.css';
 import PlayerPage from './pages/PlayerPage.tsx';
 import RechercheSummonerPage from './pages/SummonerSearchPage.tsx';
 

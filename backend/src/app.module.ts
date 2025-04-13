@@ -5,6 +5,7 @@ import { SearchHistoryService } from './riot/search-history.service';
 import { ConfigModule } from '@nestjs/config';
 import { RiotController } from './riot/riot.controller';
 import { HttpModule } from '@nestjs/axios';
+import { EsportRiotController } from './riot/EsportRiot.controller';
 
 
 @Module({
@@ -13,7 +14,7 @@ import { HttpModule } from '@nestjs/axios';
     envFilePath: '../env.riot', // Charge le .env.riot
     isGlobal: true,
   }),],
-  controllers: [AppController,RiotController],
+  controllers: [AppController,RiotController,EsportRiotController],
   providers: [AppService,SearchHistoryService],
 })
 export class AppModule {}

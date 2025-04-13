@@ -23,6 +23,55 @@
   .error-text {
     color: red;
   }
+  .esport-container {
+    padding: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Titre principal */
+  .esport-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Message d’erreur */
+  .error-text {
+    color: red;
+    margin-top: 1rem;
+  }
+  
+  /* Tableau stylisé */
+  .esport-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  /* Entête de tableau */
+  .esport-table thead {
+    background-color: #f4f4f4;
+  }
+  
+  /* Cellules (th, td) */
+  .esport-table th,
+  .esport-table td {
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  /* Ligne sur deux sur fond gris clair */
+  .esport-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+  
+  /* Surligner la ligne au survol */
+  .esport-table tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.2s ease;
+  }
   
   .match-list {
     list-style: none;

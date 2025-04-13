@@ -45,10 +45,10 @@ Fournir une plateforme où les utilisateurs peuvent :
 
 ## ⚙️ Stack technique
 
-| Côté             | Technologie                     |
+| Côté             | Technologie                      |
 |------------------|----------------------------------|
-| **Frontend**     | React.js + Tailwind CSS          |
-| **Backend**      | Node.js + Express                |
+| **Frontend**     | React.js + CSS Modules           |
+| **Backend**      | Node.js + NestJS                 |
 | **BDD**          | PostgreSQL + Prisma (ORM)        |
 | **API externe**  | Riot Games API (Summoner, Match) |
 | **Auth**         | JWT, bcrypt                      |
