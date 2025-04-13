@@ -1,0 +1,54 @@
+# Node
+node_modules/
+dist/
+build/
+
+# Environnement
+.env
+.env.*
+!.env.example
+.env.riot
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Vite
+.vite/
+
+# VS Code
+.vscode/
+
+# Docker
+docker-compose.override.yml
+.docker/
+**/.env.local
+
+# IDE
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
+
+# TypeScript
+*.tsbuildinfo
+
+# Frontend (Vite/React)
+*.local
+.cache/
+*.lock
+*.swp
+
+# Others
+*.tgz
+*.bak
+*.tmp

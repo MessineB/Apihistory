@@ -1,0 +1,1 @@
+Quelques liens important pour le projet : https://trello.com/b/SHCtFdrx/projet-apihistory
