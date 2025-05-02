@@ -1,187 +1,213 @@
+.arena-duo-card {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.arena-duos-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.arena-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+  min-width: 350px;
+}
+
 .back-to-search {
-    margin-top: -0.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .back-to-search a {
-    color: #007bff;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
-  
-  .back-to-search a:hover {
-    color: #0056b3;
-    text-decoration: underline;
-  }
-  
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.back-to-search a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.back-to-search a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
 .page-container {
-    padding: 1rem;
-  }
-  
-  .error-text {
-    color: red;
-  }
-  .esport-container {
-    padding: 1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Titre principal */
-  .esport-container h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Message d’erreur */
-  .error-text {
-    color: red;
-    margin-top: 1rem;
-  }
-  
-  /* Tableau stylisé */
-  .esport-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-  }
-  
-  /* Entête de tableau */
-  .esport-table thead {
-    background-color: #f4f4f4;
-  }
-  
-  /* Cellules (th, td) */
-  .esport-table th,
-  .esport-table td {
-    border: 1px solid #ccc;
-    padding: 0.75rem;
-    text-align: left;
-  }
-  
-  /* Ligne sur deux sur fond gris clair */
-  .esport-table tbody tr:nth-child(even) {
-    background-color: #fafafa;
-  }
-  
-  /* Surligner la ligne au survol */
-  .esport-table tbody tr:hover {
-    background-color: #f1f1f1;
-    transition: background-color 0.2s ease;
-  }
-  
-  .match-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .match-entry {
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    border: 1px solid #ccc;
-  }
-  
-  .champ-icon {
-    vertical-align: middle;
-    margin-right: 8px;
-  }
-  
-  .teams-container {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    color: black;
-  }
-  .tagline {
-    color: #888;
-    font-size: 0.8rem;
-    margin-left: 4px;
-  }  
-  .team-card {
-    flex: 1;
-    padding: 1rem;
-    border-radius: 8px;
-    border: 1px solid #aaa;
-    min-width: 350px;
-  }
-  
-  .team-card.win {
-    background-color: #d4edda;
-  }
-  
-  .team-card.lose {
-    background-color: #f8d7da;
-  }
-  
-  .participant-entry {
-    margin-bottom: 1.5rem;
-    padding: 0.75rem;
-    border-radius: 6px;
-  }
-  
-  .participant-entry.highlight {
-    background-color: #e0f7fa;
-    font-weight: bold;
-  }
-  
-  .participant-row {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-  }
-  
-  .participant-name {
-    cursor: pointer;
-    color: #007bff;
-    text-decoration: underline;
-    transition: color 0.2s ease, text-shadow 0.2s ease;
-  }
-  
-  .participant-name:hover {
-    color: #0056b3;
-    text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-  }
-  
-  .items-row {
-    margin-top: 0.25rem;
-    display: flex;
-    gap: 0.25rem;
-    margin-left: 2.5rem;
-  }
-  
-  .stats-row {
-    margin-top: 0.5rem;
-    margin-left: 2.5rem;
-    font-size: 0.85rem;
-  }
-  
-  /* Role badge colors */
-  .role-badge {
-    padding: 2px 6px;
-    border-radius: 6px;
-    color: white;
-    font-size: 0.75rem;
-    margin-left: 8px;
-  }
-  
-  .role-top {
-    background-color: #4a90e2;
-  }
-  .role-jungle {
-    background-color: #7ed321;
-  }
-  .role-middle {
-    background-color: #f5a623;
-  }
-  .role-bottom {
-    background-color: #d0021b;
-  }
-  .role-support,
-  .role-utility {
-    background-color: #9013fe;
-  }
-  
+  padding: 1rem;
+}
+
+.error-text {
+  color: red;
+}
+
+.match-list {
+  list-style: none;
+  padding: 0;
+}
+
+.match-entry {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+
+.champ-icon {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.teams-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  color: black;
+}
+
+.tagline {
+  color: #888;
+  font-size: 0.8rem;
+  margin-left: 4px;
+}
+
+.team-card {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  min-width: 350px;
+}
+
+.team-card.win {
+  background-color: #d4edda;
+}
+
+.team-card.lose {
+  background-color: #f8d7da;
+}
+
+.participant-entry {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+}
+
+.participant-entry.highlight {
+  background-color: #e0f7fa;
+  font-weight: bold;
+}
+
+.participant-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.placement-gold {
+  border-color: gold;
+  box-shadow: 0 0 10px gold;
+}
+
+.placement-green {
+  border-color: #4caf50;
+  box-shadow: 0 0 6px #4caf50;
+}
+
+.placement-red {
+  border-color: #f44336;
+  box-shadow: 0 0 6px #f44336;
+}
+.participant-name {
+  cursor: pointer;
+  color: #007bff;
+  text-decoration: underline;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.participant-name:hover {
+  color: #0056b3;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.items-row {
+  margin-top: 0.25rem;
+  display: flex;
+  gap: 0.25rem;
+  margin-left: 2.5rem;
+}
+.item-tooltip {
+  position: absolute;
+  background-color: #1c1c1c;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  width: 250px;
+  font-size: 0.85rem;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  pointer-events: none;
+  transform: translate(-50%, -110%);
+}
+
+.item-tooltip h4 {
+  margin: 0 0 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.item-tooltip .stats {
+  color: #a8e6cf;
+  margin-bottom: 0.5rem;
+}
+
+.item-tooltip .description {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.item-tooltip .price {
+  text-align: right;
+  color: #ffd700;
+}
+
+.stats-row {
+  margin-top: 0.5rem;
+  margin-left: 2.5rem;
+  font-size: 0.85rem;
+}
+
+/* Role badge colors */
+.role-badge {
+  padding: 2px 6px;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.75rem;
+  margin-left: 8px;
+}
+
+.role-top {
+  background-color: #4a90e2;
+}
+
+.role-jungle {
+  background-color: #7ed321;
+}
+
+.role-middle {
+  background-color: #f5a623;
+}
+
+.role-bottom {
+  background-color: #d0021b;
+}
+
+.role-support,
+.role-utility {
+  background-color: #9013fe;
+}

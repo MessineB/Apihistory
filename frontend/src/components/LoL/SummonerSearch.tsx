@@ -105,7 +105,7 @@ const SummonerSearch = () => {
             alt="Icône de profil"
             width={64}
             style={{ cursor: 'pointer' }}
-            onClick={() => navigate(`/joueur/${tagLine}/${gameName}`)}
+            onClick={() => navigate(`/Lol/joueur/${tagLine}/${gameName}`)}
           />
         </div>
       )}
