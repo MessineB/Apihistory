@@ -106,8 +106,47 @@ const PlayerPage = () => {
   }, [gameName, tagLine]);
 
   return (
+    
     <div className="page-container">
+      {!loading && !error && puuid && (
+        <div className="mb-4">
+          <button
+            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+            onClick={async () => {
+              try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                  alert('Vous devez être connecté pour ajouter un favori.');
+                  return;
+                }
+
+                const res = await fetch('http://localhost:3001/riot/favorite', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                  },
+                  body: JSON.stringify({ gameName, tagLine, puuid }),
+                });
+
+                if (!res.ok) {
+                  const err = await res.json();
+                  throw new Error(err.message || 'Erreur lors de l’ajout du favori');
+                }
+
+                alert('Joueur ajouté aux favoris !');
+              } catch (err: any) {
+                console.error(err);
+                alert(`Erreur : ${err.message}`);
+              }
+            }}
+          >
+            ⭐ Ajouter aux favoris
+          </button>
+        </div>
+      )}
       <h2>Historique de : {gameName}</h2>
+      
       <p className="back-to-search">
         <a href="/Lol/recherche">← Revenir à la recherche</a>
       </p>
@@ -157,10 +196,10 @@ const PlayerPage = () => {
                               <div
                                 key={placementIndex}
                                 className={`arena-duo-card ${placementIndex === 0
-                                    ? 'placement-gold'
-                                    : placementIndex >= 1 && placementIndex <= 3
-                                      ? 'placement-green'
-                                      : 'placement-red'
+                                  ? 'placement-gold'
+                                  : placementIndex >= 1 && placementIndex <= 3
+                                    ? 'placement-green'
+                                    : 'placement-red'
                                   }`}
                               >
                                 <h5>Placement #{placementIndex + 1}</h5>
@@ -185,7 +224,7 @@ const PlayerPage = () => {
                                           >
                                             {p.riotIdGameName || p.summonerName}
                                           </span>
-                                          <span className="tagline">#{p.riotIdTagline}</span> 
+                                          <span className="tagline">#{p.riotIdTagline}</span>
                                         </div>
 
                                         {/* ✅ Objets */}
@@ -299,6 +338,7 @@ const PlayerPage = () => {
           })}
         </ul>
       )}
+      
 
       {!loading && !error && matches.length === 0 && (
         <p>Aucun match trouvé pour ce joueur.</p>

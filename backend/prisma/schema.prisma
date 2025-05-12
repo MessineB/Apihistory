@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String           @id @default(uuid())
+  email           String           @unique
+  password        String
+  pseudo          String
+  profileImage    String?
+  createdAt       DateTime         @default(now())
+
+  lolAccounts     LoLAccount[]
+  dofus           Dofus[]
+  hearthstoneDeck HearthstoneDeck?
+}
+
+model LoLAccount {
+  id             String   @id @default(uuid())
+  puuid          String   @unique
+  summonerName   String
+  tagLine        String
+  level          Int
+  top5Champions  String[]
+  rank           String
+
+  userId         String
+  user           User     @relation(fields: [userId], references: [id])
+}
+
+model Dofus {
+  id        String  @id @default(uuid())
+  dofusName String
+  obtained  Boolean
+  questAchieved Int     @default(0)
+  userId    String
+  user      User    @relation(fields: [userId], references: [id])
+
+  @@unique([userId, dofusName]) // Un Dofus par joueur
+}
+
+
+model HearthstoneDeck {
+  id         String @id @default(uuid())
+  name       String
+  usageCount Int
+
+  userId     String @unique
+  user       User   @relation(fields: [userId], references: [id])
+}

@@ -89,6 +89,31 @@ export default function DofusUpload() {
     });
 
     setDofusSheets(sheets);
+
+    const token = localStorage.getItem('token');
+
+    await Promise.all(
+      sheets.map(async (sheet) => {
+        try {
+          await fetch('http://localhost:3001/dofus/sync', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+              dofusList: sheets.map((sheet) => ({
+                dofusName: sheet.name,
+                obtained: sheet.completed,
+                questAchieved: sheet.checked,
+              })),
+            }),
+          });
+        } catch (err) {
+          console.error(`Erreur lors de la sync du Dofus ${sheet.name}`, err);
+        }
+      })
+    );
   };
 
   return (

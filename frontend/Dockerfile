@@ -3,9 +3,11 @@ FROM node:18
 
 WORKDIR /app
 
+# Supprimer les caches esbuild potentiellement foireux
 COPY package*.json ./
 
-RUN npm install
+RUN rm -rf node_modules package-lock.json \
+  && npm install
 
 COPY . .
 

@@ -19,4 +19,22 @@ services:
       - ./backend:/app
       - /app/node_modules
     env_file:
-      - .env.riot
+      - .env
+    depends_on:
+      - db
+    command: sh -c "npx prisma migrate deploy && npm run start:dev"
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 135795100
+      POSTGRES_DB: Gametrack
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

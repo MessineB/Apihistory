@@ -1,11 +1,14 @@
 import SummonerSearch from '../../components/LoL/SummonerSearch';
+import FavoriteLoLAccounts from '../../components/LoL/FavoritesLoLAccount';
 
 const SummonerSearchPage = () => {
   return (
     <div>
       <h1>Recherche de joueur League of Legends</h1>
-      <a href='/'> Retour </a> 
+      <a href='/'>Retour</a>
       <SummonerSearch />
+      <hr />
+      <FavoriteLoLAccounts />
     </div>
   );
 };
