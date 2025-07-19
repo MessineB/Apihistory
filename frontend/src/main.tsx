@@ -11,8 +11,12 @@ import DofusAchivementPage from './pages/Dofus/Achivement.tsx';
 import RechercheSummonerPage from './pages/LoL/SummonerSearchPage.tsx';
 import RegisterPage from './pages/Register/RegisterPages.tsx';
 import LoginPage from './pages/Login/LoginPages.tsx';
+import ProfilPage from "./pages/Profil/ProfilPage.tsx";
+import NotfoundPage from "./pages/404/404.tsx";
 import { AuthProvider } from './context/auth-context';
-import Layout from '../src/components/Layout/Layout.tsx'; // ✅ nouveau layout partagé
+import Layout from '../src/components/Layout/Layout.tsx';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -27,10 +31,12 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/Sign-up" element={<RegisterPage />} />
             <Route path="/Login" element={<LoginPage />} />
             <Route path="/Dofus/Achivement" element={<DofusAchivementPage />} />
+            <Route path="/profil" element={<ProfilPage />} />
+            <Route path="*" element={<NotfoundPage />} />
           </Route> 
         </Routes>
+        <ToastContainer position="top-center" autoClose={3000} />
       </BrowserRouter>
     </AuthProvider>
   </StrictMode>
 );
-

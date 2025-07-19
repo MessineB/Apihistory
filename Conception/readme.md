@@ -48,7 +48,7 @@ Fournir une plateforme où les utilisateurs peuvent :
 | Côté             | Technologie                     |
 |------------------|----------------------------------|
 | **Frontend**     | React.js + Tailwind CSS          |
-| **Backend**      | Node.js + Express                |
+| **Backend**      | Node.js               |
 | **BDD**          | PostgreSQL + Prisma (ORM)        |
 | **API externe**  | Riot Games API (Summoner, Match) |
 | **Auth**         | JWT, bcrypt                      |
@@ -69,8 +69,4 @@ Fournir une plateforme où les utilisateurs peuvent :
 - User ⟷ GameAccount : many-to-many
 - GameAccount ⟶ Match : one-to-many
 - Match ⟶ Champion : one-to-one
-
----
-
-## 🧭 Architecture de l'application
 

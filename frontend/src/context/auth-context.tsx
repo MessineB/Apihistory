@@ -3,13 +3,16 @@ import { jwtDecode } from 'jwt-decode';
 
 interface DecodedToken {
   userId: string;
-  // ajoute ici d'autres propriétés si ton token en contient
+  pseudo: string;
+  email: string;
 }
 
 interface AuthContextType {
   isAuthenticated: boolean;
   token: string | null;
   userId: string | null;
+  pseudo: string | null;
+  email: string | null;
   login: (token: string) => void;
   logout: () => void;
 }
@@ -18,6 +21,8 @@ const AuthContext = createContext<AuthContextType>({
   isAuthenticated: false,
   token: null,
   userId: null,
+  pseudo: null,
+  email: null,
   login: () => {},
   logout: () => {},
 });
@@ -25,12 +30,16 @@ const AuthContext = createContext<AuthContextType>({
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [token, setToken] = useState<string | null>(() => localStorage.getItem('token'));
   const [userId, setUserId] = useState<string | null>(null);
+  const [pseudo, setPseudo] = useState<string | null>(null);
+  const [email, setEmail] = useState<string | null>(null);
 
   useEffect(() => {
     if (token) {
       try {
         const decoded: DecodedToken = jwtDecode(token);
         setUserId(decoded.userId);
+        setPseudo(decoded.pseudo);
+        setEmail(decoded.email);
       } catch (error) {
         console.error('Token invalide', error);
         logout();
@@ -53,6 +62,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     isAuthenticated: !!token,
     token,
     userId,
+    pseudo,
+    email,
     login,
     logout,
   };

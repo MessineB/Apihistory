@@ -1,6 +1,8 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../../styles/global.css';
+import { toast } from 'react-toastify';
+
 
 function formatMatchDate(timestamp: number): string {
   const date = new Date(timestamp);
@@ -15,7 +17,6 @@ function formatMatchDate(timestamp: number): string {
   if (diffHours < 24) return `il y a ${diffHours}h`;
   if (diffDays < 7) return `il y a ${diffDays} jour${diffDays > 1 ? 's' : ''}`;
 
-  // Sinon date complète
   return `le ${date.toLocaleDateString('fr-FR')} à ${date.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}`;
 }
 
@@ -106,7 +107,7 @@ const PlayerPage = () => {
   }, [gameName, tagLine]);
 
   return (
-    
+
     <div className="page-container">
       {!loading && !error && puuid && (
         <div className="mb-4">
@@ -116,7 +117,7 @@ const PlayerPage = () => {
               try {
                 const token = localStorage.getItem('token');
                 if (!token) {
-                  alert('Vous devez être connecté pour ajouter un favori.');
+                  toast.error('Vous devez être connecté pour ajouter un favori.');
                   return;
                 }
 
@@ -134,10 +135,10 @@ const PlayerPage = () => {
                   throw new Error(err.message || 'Erreur lors de l’ajout du favori');
                 }
 
-                alert('Joueur ajouté aux favoris !');
+                toast.success('Joueur ajouté aux favoris !');
               } catch (err: any) {
                 console.error(err);
-                alert(`Erreur : ${err.message}`);
+                toast.error(`Erreur : ${err.message}`);
               }
             }}
           >
@@ -146,7 +147,7 @@ const PlayerPage = () => {
         </div>
       )}
       <h2>Historique de : {gameName}</h2>
-      
+
       <p className="back-to-search">
         <a href="/Lol/recherche">← Revenir à la recherche</a>
       </p>
@@ -183,7 +184,7 @@ const PlayerPage = () => {
 
                 {isArena ? (
 
-                  <div className="teams-container">
+                  <div className="teams-container-arena">
 
                     <div className="arena-duos-grid">
                       {[0, 1].map((colIndex) => (
@@ -338,7 +339,7 @@ const PlayerPage = () => {
           })}
         </ul>
       )}
-      
+
 
       {!loading && !error && matches.length === 0 && (
         <p>Aucun match trouvé pour ce joueur.</p>

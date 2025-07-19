@@ -1,5 +1,5 @@
 import SummonerSearch from '../../components/LoL/SummonerSearch';
-import FavoriteLoLAccounts from '../../components/LoL/FavoritesLoLAccount';
+import FavoriteLoLAccounts from '../../components/LoL/FavoritesLolAccount.tsx';
 
 const SummonerSearchPage = () => {
   return (

@@ -139,6 +139,31 @@ export class RiotController {
     return enriched;
   }
 
+  
+  @UseGuards(JwtAuthGuard)
+  @Post('favorite/delete')
+  async removeFavorite(
+    @Body() body: { id: string },
+    @Request() req,
+  ) {
+    const userId = req.user.userId;
+
+    // Vérifie si le favori appartient bien à l'utilisateur
+    const account = await this.prisma.loLAccount.findUnique({
+      where: { id: body.id },
+    });
+
+    if (!account || account.userId !== userId) {
+      throw new ConflictException('Ce favori ne vous appartient pas');
+    }
+
+    await this.prisma.loLAccount.delete({
+      where: { id: body.id },
+    });
+
+    return { message: 'Favori supprimé avec succès' };
+  }
+
   @Get('summoner/:gameName/:tagLine')
   async getSummonerInfo(
     @Param('gameName') gameName: string,
